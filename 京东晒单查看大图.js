@@ -2,7 +2,7 @@
 // @name         京东晒单查看大图
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  给京东评晒单及论中的图片添加一个“查看大图”的按钮
+// @description  给京东评晒单及评价中的图片添加一个“查看大图”的按钮
 // @author       ssyatelandisi
 // @match        https://*.jd.com/*
 // @grant        none
