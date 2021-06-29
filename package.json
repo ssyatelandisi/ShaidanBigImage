@@ -1,0 +1,23 @@
+{
+  "name": "jdshaidanbigimage",
+  "version": "1.0.0",
+  "description": "[到greasyfork安装](https://greasyfork.org/zh-CN/scripts/373983-%E4%BA%AC%E4%B8%9C%E6%99%92%E5%8D%95%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE)",
+  "main": "京东晒单查看大图.user.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssyatelandisi/JDShaidanBigImage.git"
+  },
+  "author": "ssyatelandisi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssyatelandisi/JDShaidanBigImage/issues"
+  },
+  "homepage": "https://github.com/ssyatelandisi/JDShaidanBigImage#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.1",
+    "typescript": "^4.3.4"
+  }
+}
