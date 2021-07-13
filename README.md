@@ -19,6 +19,13 @@
 ![评价查看大图](https://cdn.jsdelivr.net/gh/ssyatelandisi/JDShaidanBigImage@master/02.jpg)
 
 ------
+## 天猫查看大图
+
+进入**评价**中查看有图片的项，鼠标移上去就会在左上角显示**查看大图**。
+
+![评价图片](https://cdn.jsdelivr.net/gh/ssyatelandisi/JDShaidanBigImage@master/03.jpg)
+
+------
 
 ## 版本
 
