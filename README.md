@@ -8,7 +8,7 @@
 
 进入网页版**商品评价**，进入**晒单**选项，当鼠标移入下方预览图时，会在右上角出现一个**查看大图**按钮。点击后会在新页面打开当前图片的大图。
 
-![晒单查看大图](https://cdn.jsdelivr.net/gh/ssyatelandisi/JDShaidanBigImage@master/01.jpg)
+![晒单查看大图](https://cdn.jsdelivr.net/gh/ssyatelandisi/ShaidanBigImage@master/01.jpg)
 
 ------
 
@@ -16,14 +16,14 @@
 
 进入网页版**商品评价**，进入**全部评价**选项，当鼠标移入下方预览图时，会在右上角出现一个**查看大图**按钮。点击后会在新页面打开当前图片的大图。
 
-![评价查看大图](https://cdn.jsdelivr.net/gh/ssyatelandisi/JDShaidanBigImage@master/02.jpg)
+![评价查看大图](https://cdn.jsdelivr.net/gh/ssyatelandisi/ShaidanBigImage@master/02.jpg)
 
 ------
 ## 天猫查看大图
 
 进入**评价**中查看有图片的项，鼠标移上去就会在左上角显示**查看大图**。
 
-![评价图片](https://cdn.jsdelivr.net/gh/ssyatelandisi/JDShaidanBigImage@master/03.jpg)
+![评价图片](https://cdn.jsdelivr.net/gh/ssyatelandisi/ShaidanBigImage@master/03.jpg)
 
 ------
 
