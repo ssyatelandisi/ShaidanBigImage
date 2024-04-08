@@ -1,14 +1,14 @@
+/* global        $ */
 // ==UserScript==
 // @name         京东天猫晒单查看大图
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  给京东、天猫评晒单及评价中的图片添加一个“查看大图”的按钮
 // @author       ssyatelandisi
 // @match        *://*.jd.com/*
 // @match        *://*.tmall.com/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // @grant        GM_addStyle
-/* global        $ */
 // ==/UserScript==
 (function () {
     "use strict";
@@ -51,18 +51,18 @@
         return false;
     });
     /* 天猫 */
-    $("body").on("mouseenter", "#J_Reviews .tm-rate-content .tm-m-photos .tm-m-photo-viewer", function () {
+    $("body").on("mouseenter", "div[class^='Comment--preview--']", function () {
         const that = this;
         $(this).prepend('<button id="TMopenNewImg"><b>查看大图</b></button>');
         $("button#TMopenNewImg").on("click", function () {
-            const regex = /_400x400\.jpg/;
+            const regex = /_450x.+\.jpg(_\.webp)?/;
             const imgLink = $(that).find("img")[0].src;
             const newImgLink = imgLink.replace(regex, "");
             window.open(newImgLink);
             return false;
         });
     });
-    $("body").on("mouseleave", "#J_Reviews .tm-rate-content .tm-m-photos .tm-m-photo-viewer", function () {
+    $("body").on("mouseleave", "div[class^='Comment--preview--']", function () {
         $("button#TMopenNewImg").remove();
         return false;
     });
