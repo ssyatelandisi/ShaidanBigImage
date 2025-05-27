@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         京东天猫晒单查看大图
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  给京东、天猫评晒单及评价中的图片添加一个“查看大图”的按钮
 // @author       ssyatelandisi
 // @match        *://*.jd.com/*
@@ -18,15 +18,15 @@
   );
   /* 京东 */
   //查看晒单大图
-  $("body").on("mouseenter", ".photo-wrap", function () {
+  $("body").on("mouseenter", "div.imgs div.term", function () {
     const that = this;
-    $(".photo-wrap").prepend(
+    $(this).prepend(
       '<button id="JDopenNewImg"><b>查看大图</b></button>'
     );
     $("button#JDopenNewImg").on("click", function () {
       const regex1 = /n\d{1,2}/;
       const regex2 = /s\d+x\d+_/;
-      const imgLink = (<HTMLImageElement>$(that).find(".J-photo-img")[0]).src;
+      const imgLink = (<HTMLImageElement>$(that).find("img")[0]).src;
       let newImgLink = imgLink.replace(regex1, "shaidan");
       newImgLink = newImgLink.replace(regex2, "");
       window.open(newImgLink);
@@ -34,15 +34,15 @@
     });
     return false;
   });
-  $("body").on("mouseleave", ".photo-wrap", function () {
+  $("body").on("mouseleave", "div.imgs div.term", function () {
     $("button#JDopenNewImg").remove();
     return false;
   });
 
   //查看评论大图
-  $("body").on("mouseenter", ".pic-view.J-pic-view", function () {
+  $("body").on("mouseenter", ".jdc-image", function () {
     const that = this;
-    $(".pic-view.J-pic-view").prepend(
+    $(this).prepend(
       '<button id="JDopenNewImg"><b>查看大图</b></button>'
     );
     $("button#JDopenNewImg").on("click", function () {
@@ -53,7 +53,7 @@
       return false;
     });
   });
-  $("body").on("mouseleave", ".pic-view.J-pic-view", function () {
+  $("body").on("mouseleave", ".jdc-image", function () {
     $("button#JDopenNewImg").remove();
     return false;
   });
@@ -61,7 +61,7 @@
   /* 天猫 */
   $("body").on(
     "mouseenter",
-    "div[class^='Comment--preview--']",
+    "div div div div div div div div div div div div div div div div div",
     function () {
       const that = this;
       $(this).prepend('<button id="TMopenNewImg"><b>查看大图</b></button>');
@@ -76,7 +76,7 @@
   );
   $("body").on(
     "mouseleave",
-    "div[class^='Comment--preview--']",
+    "div div div div div div div div div div div div div div div div div",
     function () {
       $("button#TMopenNewImg").remove();
       return false;
