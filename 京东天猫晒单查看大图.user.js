@@ -2,18 +2,20 @@
 // ==UserScript==
 // @name         京东天猫晒单查看大图
 // @namespace    http://tampermonkey.net/
-// @version      0.7
-// @description  给京东、天猫评晒单及评价中的图片添加一个“查看大图”的按钮
+// @version      0.8
+// @description  给京东、天猫、淘宝评晒单及评价中的图片添加一个“查看大图”的按钮
 // @author       ssyatelandisi
 // @match        *://*.jd.com/*
 // @match        *://*.tmall.com/*
+// @match        *://*.taobao.com/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // @grant        GM_addStyle
 // ==/UserScript==
 (function () {
     "use strict";
     // @ts-ignore
-    GM_addStyle(`#JDopenNewImg{color:#288cf0;border:2px #288cf0 solid;background-color:rgba(255,255,255,0.75);border-radius:5px;padding:5px;cursor:pointer;position:absolute;top:0;right:0;z-index:9999;font-weight:normal}#JDopenNewImg:hover{color:#ffffff;border-color:#288cf0;background-color:#288cf0;font-weight:bolder}#TMopenNewImg{color:#288cf0;border:2px #288cf0 solid;background-color:rgba(255,255,255,0.75);border-radius:5px;padding:5px;cursor:pointer;position:absolute;top:0;left:0;z-index:9999;font-weight:normal}#TMopenNewImg:hover{color:#ffffff;border-color:#288cf0;background-color:#288cf0;font-weight:bolder}`);
+    GM_addStyle(`#JDopenNewImg{color:#288cf0;border:2px #288cf0 solid;background-color:rgba(255,255,255,.75);border-radius:5px;padding:5px;cursor:pointer;position:absolute;top:0;right:0;z-index:9999;font-weight:normal}#JDopenNewImg:hover{color:#fff;border-color:#288cf0;background-color:#288cf0;font-weight:bolder}#TMopenNewImg{color:#288cf0;border:2px #288cf0 solid;background-color:rgba(255,255,255,.75);border-radius:5px;padding:5px;cursor:pointer;position:absolute;top:0;left:0;z-index:9999;font-weight:normal}#TMopenNewImg:hover{color:#fff;border-color:#288cf0;background-color:#288cf0;font-weight:bolder}#TBopenNewImg{color:#288cf0;border:2px #288cf0 solid;background-color:rgba(255,255,255,.75);border-radius:5px;padding:5px;cursor:pointer;position:absolute;top:0;left:0;z-index:99999;font-weight:normal}#TBopenNewImg:hover{color:#fff;border-color:#288cf0;background-color:#288cf0;font-weight:bolder}
+`);
     /* 京东 */
     //查看晒单大图
     $("body").on("mouseenter", "div.imgs div.term", function () {
@@ -64,6 +66,20 @@
     });
     $("body").on("mouseleave", "div div div div div div div div div div div div div div div div div", function () {
         $("button#TMopenNewImg").remove();
+        return false;
+    });
+    /* 淘宝 */
+    $("body").on("mouseenter", "div div div div div div div div div div div div div div div div div img[data-appeared='true']", function () {
+        const that = this;
+        $(this).parent().prepend('<button id="TBopenNewImg"><b>查看大图</b></button>');
+        $("button#TMopenNewImg").on("click", function () {
+            const imgLink = that.src;
+            window.open(imgLink);
+            return false;
+        });
+    });
+    $("body").on("mouseleave", "div div div div div div div div div div div div div div div div div img[data-appeared='true']", function () {
+        $("button#TBopenNewImg").remove();
         return false;
     });
 })();
